@@ -1,7 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: rgb(228, 194, 149);
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    min-height: 100vh;
+    opacity: 1;
+    animation: opacity 1.5s ease-in-out;
+}
+
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 a {
@@ -9,21 +26,70 @@ a {
     color: white;
 }
 
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #7e582d;
     padding: 0 20px;
+    animation: down 0.8s ease-out;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.menu {
+    display: none;
+}
+
+.menu button {
+    background-color: #b98c55;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px black;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+    background-color: bisque;
 }
 
 .logo img {
     width: 150px;
     height: 75px;
+    animation: logo 2s ease-in-out;
 }
 
+@keyframes logo {
+    0% {
+        transform: translateX(1000px) scale(10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%) scale(100%);
+        opacity: 1;
+    }
+}
+
+
+
 .logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
     transition: all 0.5s ease;
 }
 
@@ -43,6 +109,35 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: nav 1.5s ease-in-out;
+    position: relative;
+
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    border-top: 2px solid white;
+    bottom: 10px;
+    left: 10px;
+    transition: all 0.5s ease;
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+@keyframes nav {
+    0% {
+        transform: translateX(-1000px) scale(10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%) scale(100%);
+        opacity: 1;
+    }
 }
 
 nav a:hover {
@@ -58,8 +153,18 @@ nav a:hover {
     height: 50%;
     width: max-content;
     margin: 0 auto;
+    animation-name: head;
+    animation-duration: 2s;
+}
 
+@keyframes head {
+    0% {
+        transform: translateY(-300%) scale(10%);
+    }
 
+    100% {
+        transform: translateY(0%) scale(100%);
+    }
 }
 
 .head:hover h1 {
@@ -73,14 +178,45 @@ h1 {
     border: 3px solid #68500d;
     border-radius: 50%;
     padding: 20px;
+    background-color: bisque;
+    position: relative;
 }
+
+h1::before {
+    content: "★";
+    font-size: 2rem;
+    position: absolute;
+    left: -40px;
+    color: #68500d;
+    animation: rotate 2s linear infinite;
+}
+
+h1::after {
+    content: "★";
+    font-size: 2rem;
+    position: absolute;
+    right: -40px;
+    color: #68500d;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 .container {
     max-width: 1200px;
     justify-items: center;
     align-items: center;
     gap: 35px;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -92,23 +228,160 @@ h1 {
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    box-shadow: 0 5px 10px black;
+    box-shadow: 10px 10px 20px black;
     width: 300px;
     height: 500px;
     padding: 0 20px;
     gap: 10px;
     background-color: bisque;
     transition: all 0.5s ease;
+    position: relative;
+}
+
+.box::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0 0 30px 0;
+    transition: all 0.5s ease;
+}
+
+.box h3 {
+    position: relative;
+}
+
+.box h3::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 2px solid white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.box:hover h3::before {
+    width: 100%;
+}
+
+.box h3::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 2px solid white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+.box:hover h3::after {
+    width: 100%;
+}
+
+.porsche {
+    animation-name: porsche;
+    animation-duration: 1.5s;
+}
+
+@keyframes porsche {
+    0% {
+        transform: scale(10%) translateX(-600px);
+    }
+
+    100% {
+        transform: scale(100%) translateX(0px);
+    }
+}
+
+.nissan {
+    animation-name: nissan;
+    animation-duration: 1.5s;
+}
+
+@keyframes nissan {
+    0% {
+        transform: scale(10%) translateY(-300px);
+    }
+
+    100% {
+        transform: scale(100%) translateY(0px);
+    }
+}
+
+.toyota {
+    animation-name: toyota;
+    animation-duration: 1.5s;
+}
+
+@keyframes toyota {
+    0% {
+        transform: scale(10%) translateX(600px);
+    }
+
+    100% {
+        transform: scale(100%) translateX(0px);
+    }
+}
+
+.bmw {
+    animation-name: bmw;
+    animation-duration: 1.5s;
+}
+
+@keyframes bmw {
+    0% {
+        transform: scale(10%) translateX(-600px);
+    }
+
+    100% {
+        transform: scale(100%) translateX(0px);
+    }
+}
+
+.lexus {
+    animation-name: lexus;
+    animation-duration: 1.5s;
+}
+
+@keyframes lexus {
+    0% {
+        transform: scale(10%) translateY(300px);
+    }
+
+    100% {
+        transform: scale(100%) translateY(0px);
+    }
+}
+
+.mercedes {
+    animation-name: mercedes;
+    animation-duration: 1.5s;
+}
+
+@keyframes mercedes {
+    0% {
+        transform: scale(10%) translateX(600px);
+    }
+
+    100% {
+        transform: scale(100%) translateX(0px);
+    }
 }
 
 .box:hover {
     transform: scale(1.1);
     background-color: #b98c55;
+    border: 2px solid black;
 }
 
 .box:hover img {
-    transform: scale(1.1);
-    transform: rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
     transition: all 0.5s ease;
     border-radius: 50%;
 }
@@ -134,7 +407,6 @@ h1 {
     width: 250px;
     object-fit: cover;
     border-radius: 20px;
-    object-fit: cover;
 }
 
 .box button {
@@ -146,27 +418,162 @@ h1 {
     background-color: #8b5e29;
     font-size: 1rem;
     font-style: bold;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 576px){
-    .container{
-        grid-template-columns: repeat(1, 1fr);
+.box button::after {
+    content: "→";
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+}
+
+.box button:hover::after {
+    opacity: 1;
+    right: 15px;
+}
+
+.box button:hover {
+    padding-right: 30px;
+}
+
+footer {
+    background-color: #683e05;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer1 {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.footer2 {
+    margin-right: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.footerlogo img {
+    width: 300px;
+    height: 150px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: scale(1);
     }
-    nav a{
-        display: none;
+
+    50% {
+        transform: scale(1.1);
     }
-    .logo{
-        margin: 0 auto;
+
+    100% {
+        transform: scale(1);
     }
 }
-@media (min-width: 576px) and (max-width: 992px){
-    .container{
-        grid-template-columns: repeat(2, 1fr);
+
+
+
+
+@media (max-width: 576px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0 auto;
     }
-    nav a{
+
+    nav a {
         display: none;
     }
-    .logo{
+
+    .menu {
+        display: block;
+    }
+
+    .logo {
         margin: 0 auto;
+    }
+
+    .footer1 {
+        font-size: 1.2rem;
+    }
+
+    @keyframes logo {
+        0% {
+            transform: scale(1500%) translate(0px, 30px);
+        }
+
+        100% {
+            transform: scale(100%);
+        }
+    }
+
+    @keyframes head {
+        0% {
+            transform: translateX(-300%) rotate(-180deg);
+        }
+
+        100% {
+            transform: translateX(0%) rotate(0deg);
+        }
+    }
+
+    .head:hover h1 {
+        transform: scale(1.1) rotate(3deg);
+        transition: all 0.5s ease;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav a {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+
+    @keyframes logo {
+        0% {
+            transform: scale(1500%) translate(0px, 30px);
+        }
+
+        100% {
+            transform: scale(100%);
+        }
+    }
+
+    @keyframes head {
+        0% {
+            transform: translateX(-300%) rotate(-180deg);
+        }
+
+        100% {
+            transform: translateX(0%) rotate(0deg);
+        }
+    }
+
+    .head:hover h1 {
+        transform: scale(1.2) rotate(3deg);
+        transition: all 0.5s ease;
     }
 }
