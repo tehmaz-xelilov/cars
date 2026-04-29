@@ -186,6 +186,10 @@ h1 {
     box-shadow: 1px 1px 10px black;
 }
 
+h1::first-letter{
+    font-size: 3.5rem;
+}
+
 h1::before {
     content: "★";
     font-size: 2rem;
@@ -251,6 +255,12 @@ h1::after {
 
 .box h3 {
     position: relative;
+}
+
+.box p {
+    text-align: center;
+    color: black;
+    font-weight: 400;
 }
 
 .box h3::before {
