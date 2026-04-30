@@ -9,7 +9,6 @@ body {
     opacity: 1;
     animation: opacity 1.5s ease-in-out;
     position: relative;
-    z-index: 10;
 }
 
 
@@ -186,7 +185,7 @@ h1 {
     box-shadow: 1px 1px 10px black;
 }
 
-h1::first-letter{
+h1::first-letter {
     font-size: 3.5rem;
 }
 
@@ -473,7 +472,6 @@ footer {
 .footer2 {
     margin-right: 20px;
     font-weight: bold;
-    margin-right: 20px;
 }
 
 .footerlogo img {
@@ -496,7 +494,126 @@ footer {
     }
 }
 
+.form-area {
+    background-color: bisque;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
+form {
+    background-color: rgb(241, 200, 149);
+    width: 500px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 50px;
+    box-shadow: 10px 10px 20px black;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+form div {
+    height: 60px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+
+form::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: rgba(255, 228, 196, 0.7);
+    box-shadow: 10px 10px 20px black;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+form:hover::before {
+    width: 200px;
+    height: 200px;
+    box-shadow: 10px 10px 20px black;
+    transition: all 0.3s ease;
+}
+
+form::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: rgba(255, 228, 196, 0.7);
+    box-shadow: 10px 10px 20px black;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    transition: all 0.5s ease;
+}
+
+form:hover::after {
+    width: 200px;
+    height: 200px;
+    box-shadow: 10px 10px 20px black;
+    transition: all 0.3s ease;
+}
+
+form input {
+    height: 70%;
+    width: 70%;
+    border-radius: 20px;
+    border: none;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 5px 5px 5px black;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+form button {
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #8b5e29;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 5px black;
+}
+
+form:hover {
+    transform: scale(1.1);
+}
+
+form input:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+form button:hover {
+    transform: scale(1.1) rotate(-3deg);
+    background-color: #683e05;
+    color: white;
+}
 
 
 @media (max-width: 576px) {
